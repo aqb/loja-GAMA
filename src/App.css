@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #080810;
 }
 
 .App-logo {
@@ -35,4 +36,36 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.body-section{
+  padding-top: 10%;
+  width: 100%;
+  height: 100%;
+  background-color: #080810;
+}
+
+.body-text{
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  margin-top: 10%;
+}
+
+.rectangle-forms {
+  display: inline-block;
+  width: 100%;
+  height: 80%;
+  margin-top: 20%;
+  background: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+.rectangle-end{
+  background: #080810;
+  width: 100%;
+}
+
+.confirm-button{
+  background-color: black!important;
+  border-color: black!important;
 }
