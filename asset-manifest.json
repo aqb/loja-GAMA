@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/loja-GAMA/static/css/main.9bca3d33.chunk.css",
+    "main.js": "/loja-GAMA/static/js/main.89c767d0.chunk.js",
+    "main.js.map": "/loja-GAMA/static/js/main.89c767d0.chunk.js.map",
+    "runtime-main.js": "/loja-GAMA/static/js/runtime-main.e1a42366.js",
+    "runtime-main.js.map": "/loja-GAMA/static/js/runtime-main.e1a42366.js.map",
+    "static/css/2.081f420c.chunk.css": "/loja-GAMA/static/css/2.081f420c.chunk.css",
+    "static/js/2.bd78ce0b.chunk.js": "/loja-GAMA/static/js/2.bd78ce0b.chunk.js",
+    "static/js/2.bd78ce0b.chunk.js.map": "/loja-GAMA/static/js/2.bd78ce0b.chunk.js.map",
+    "static/js/3.9fcb6207.chunk.js": "/loja-GAMA/static/js/3.9fcb6207.chunk.js",
+    "static/js/3.9fcb6207.chunk.js.map": "/loja-GAMA/static/js/3.9fcb6207.chunk.js.map",
+    "index.html": "/loja-GAMA/index.html",
+    "static/css/2.081f420c.chunk.css.map": "/loja-GAMA/static/css/2.081f420c.chunk.css.map",
+    "static/css/main.9bca3d33.chunk.css.map": "/loja-GAMA/static/css/main.9bca3d33.chunk.css.map",
+    "static/js/2.bd78ce0b.chunk.js.LICENSE.txt": "/loja-GAMA/static/js/2.bd78ce0b.chunk.js.LICENSE.txt",
+    "static/media/background.3d967d9f.jpeg": "/loja-GAMA/static/media/background.3d967d9f.jpeg",
+    "static/media/chevroletcruze.27fb8fc5.png": "/loja-GAMA/static/media/chevroletcruze.27fb8fc5.png",
+    "static/media/chevroletonix.a9b2a526.png": "/loja-GAMA/static/media/chevroletonix.a9b2a526.png",
+    "static/media/fiatmobi.a10be7b9.jpg": "/loja-GAMA/static/media/fiatmobi.a10be7b9.jpg",
+    "static/media/fiatuno.91f1d635.png": "/loja-GAMA/static/media/fiatuno.91f1d635.png",
+    "static/media/peugeot308.db0c305f.png": "/loja-GAMA/static/media/peugeot308.db0c305f.png",
+    "static/media/renaultsandero.7bd9ee61.jpg": "/loja-GAMA/static/media/renaultsandero.7bd9ee61.jpg",
+    "static/media/teslas.a2c972d7.png": "/loja-GAMA/static/media/teslas.a2c972d7.png",
+    "static/media/toyotaprius.1a3ff929.png": "/loja-GAMA/static/media/toyotaprius.1a3ff929.png",
+    "static/media/volkswagengol.2dbc02ef.jpg": "/loja-GAMA/static/media/volkswagengol.2dbc02ef.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e1a42366.js",
+    "static/css/2.081f420c.chunk.css",
+    "static/js/2.bd78ce0b.chunk.js",
+    "static/css/main.9bca3d33.chunk.css",
+    "static/js/main.89c767d0.chunk.js"
+  ]
+}
