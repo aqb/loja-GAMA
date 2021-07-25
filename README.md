@@ -1,5 +1,19 @@
-# Getting Started with Create React App
+# Desafio 2# - Gestão de Cadastros
+##### Link para o site https://aqb.github.io/loja-GAMA/
+Desafio: Criar um sistema de e-commerce para inventário de produtos e dados de clientes
+Entregáveis:
+* Os dados de clientes, endereços e produtos devem estar devidamente estruturados
+* Dados no localstorage
+* Código fonte no github com o arquivo README detalhando as funcionalidades da programação
 
+## Proposta
+A proposta do site é simular uma página da Uber na qual os motoristas podem alugar um ou mais carros por um valor mensal através do seu "Uber ID".
+
+## Sobre a aplicação
+A aplicação contém uma landing page na qual é possível escolher carros tanto do carrosel quanto das fotos embaixo dele, bastando clicar no botão próximo às imagens para adicionar ao carrinho. A lista está localizada na parte inferior da página e é atualizada toda vez que há uma modificação, mostrando os carros adicionados e seus respectivos valores, bem como o valor total. Na finalização  da compra, a aplicação verifica se a lista contém algum item e se todos os dados requisitados foram fornecidos pelo cliente. Em caso positivo, a ordem é processada (salva no local storage)
+
+
+## Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
