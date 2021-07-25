@@ -2,9 +2,10 @@ import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Row, Container, Col, Carousel, Form, Button, Alert } from 'react-bootstrap';
-
+import toast, { Toaster } from 'react-hot-toast';
 import {React, useState, useEffect} from 'react';
 import background from './assets/background.jpeg';
+
 
 import volkswagenGol from './assets/volkswagengol.jpg';
 import renaultSandero from './assets/renaultsandero.jpg'
@@ -22,33 +23,63 @@ import {  FiInstagram, FiGithub, FiLinkedin, FiTwitter, FiYoutube, FiShoppingCar
 
 function App() {
   const [name, updateName] = useState("")
-  const [email, updateEmail] = useState("")
+  const [ID, updateID] = useState("")
+  const [address, updateAdress] = useState("")
+  const [password, updatePassword] = useState("")
+
+  const [ListCart, updateListCart] = useState([])
 
   function storeInfo(){
     let users = JSON.parse(localStorage.getItem('users') || "[]")
-    if(name === "" || email === "") {
+    if(name === "" || ID === "" || address === "" || password === "") {
+      toastMessage("Information missing", "❗️")
       return
     }
-    if(users.find(user => user.email === email)){
+    if(ListCart.length === 0) {
+      toastMessage("The cart is empty", "🛒")
       return
     }
         
-    localStorage.setItem('users', JSON.stringify([...users, {name, email}]));
+    localStorage.setItem('users', JSON.stringify([...users, {name, ID, address, ListCart}]));
+    
+    toastMessage("Successful!", "✅")
+
     updateName("")
-    updateEmail("")
+    updateID("")
+    updateAdress("")
+    updatePassword("")
+    updateListCart([])
   }
 
-  function buttonToCart(){
-    <Alert variant="success">
-      This is a alert with
-    </Alert>
+  function addCars(message, emoji, carName, carValue){
+    toastMessage(message, emoji)
+    updateListCart([...ListCart, {carName, carValue}])
+  }
 
-    console.log("teste compra")
+  function toastMessage(message, emoji){
+    toast(message, {
+      duration: 4000,
+      position: 'top-center',
+      // Styling
+      style: {},
+      className: '',
+      // Custom Icon
+      icon: emoji,
+      // Change colors of success/error/loading icon
+      iconTheme: {
+        primary: '#000',
+        secondary: '#fff',
+      },
+      // Aria
+      ariaProps: {
+        role: 'status',
+        'aria-live': 'polite',
+      },
+    });
   }
 
   return (
     <div className="App" style={{backgroundImage: `url(${background})`}}>                      
-      <Container>
         <Row className="text-white pt-3 pb-3" style={{background:'#000000'}}>
           <Col><a style={{color:"#ffffff"}} href="https://www.uber.com/br/en/"><h5>Home</h5></a></Col>
           <Col><a style={{color:"#ffffff"}} href="https://www.uber.com/br/en/safety/"><h5>Safety</h5></a></Col>
@@ -62,8 +93,9 @@ function App() {
           </Col>
         </Row>
 
+      <Container>
         <div className="pb-5">     
-          <h1 className="text-white" style={{background:'#080810'}}>Car rental vouchers</h1>               
+          <h1 className="text-white mt-4" style={{background:'#080810'}}>Car rental vouchers</h1>               
           <Carousel>            
             <Carousel.Item>
               <img
@@ -75,7 +107,7 @@ function App() {
               <Carousel.Caption>
                 <h3>Renault Sandero</h3>
                 <p>$140/month</p>
-                <Button variant="secondary" size="sm" onClick={e => buttonToCart()}>
+                <Button variant="secondary" size="sm" onClick={e => addCars("Added to cart!", "👏", "Renault Sandero", 140)}>
                   Add to cart
                 </Button>
               </Carousel.Caption>
@@ -90,27 +122,12 @@ function App() {
 
               <Carousel.Caption>
                 <h3>Fiat Mobi</h3>
-                <p>$100/month</p>
-                <Button variant="secondary" size="sm">
+                <p>$120/month</p>
+                <Button variant="secondary" size="sm" onClick={e => addCars("Added to cart!", "👏", "Fiat Mobi", 120)}>
                   Add to cart
                 </Button>
               </Carousel.Caption>
             </Carousel.Item>
-
-            {/* <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={volkswagenGol}
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h3>Volkswagen gol</h3>
-                <p>$120/month</p>
-                <Button variant="secondary" size="sm">
-                  Add to cart
-                </Button>
-              </Carousel.Caption>
-            </Carousel.Item> */}
           </Carousel>       
         </div>
 
@@ -119,7 +136,7 @@ function App() {
             <img className="w-100" src={toyotaPrius}></img>
             <h4>Toyota Prius</h4>
             <p>$200/month</p>
-                <Button variant="secondary" size="sm">
+                <Button variant="secondary" size="sm" onClick={e => addCars("Added to cart!", "👏", "Toyota Prius", 200)}>
                   Add to cart
                 </Button>
           </Col>
@@ -127,7 +144,7 @@ function App() {
             <img className="w-100" src={teslas2021}></img>
             <h4>Tesla S 2021</h4>
             <p>$400/month</p>
-                <Button variant="secondary" size="sm">
+                <Button variant="secondary" size="sm" onClick={e => addCars("Added to cart!", "👏", "Tesla s 2021", 400)}>
                   Add to cart
                 </Button>
           </Col>
@@ -136,7 +153,7 @@ function App() {
             <img className="w-100" src={chevroletCruze}></img>
             <h4>Chevrolet Cruze</h4>
             <p>$250/month</p>
-                <Button variant="secondary" size="sm">
+                <Button variant="secondary" size="sm" onClick={e => addCars("Added to cart!", "👏", "Chevrolet Cruze", 250)}>
                   Add to cart
                 </Button>
           </Col>
@@ -147,7 +164,7 @@ function App() {
             <img className="w-100" src={chevroletOnix}></img>
             <h4>Chevrolet Onix</h4>
             <p>$180/month</p>
-                <Button variant="secondary" size="sm">
+                <Button variant="secondary" size="sm" onClick={e => addCars("Added to cart!", "👏", "Chevrolet Onix", 180)}>
                   Add to cart
                 </Button>
           </Col>
@@ -155,7 +172,7 @@ function App() {
             <img className="w-100" src={peugeot308}></img>
             <h4>Peugeot 308</h4>
             <p>$160/month</p>
-                <Button variant="secondary" size="sm">
+                <Button variant="secondary" size="sm" onClick={e => addCars("Added to cart!", "👏", "Peugeot 308", 160)}>
                   Add to cart
                 </Button>
           </Col>
@@ -164,7 +181,7 @@ function App() {
             <img className="w-100" src={fiatUno}></img>
             <h4>Fiat Uno</h4>
             <p>$100/month</p>
-                <Button variant="secondary" size="sm">
+                <Button variant="secondary" size="sm" onClick={e => addCars("Added to cart!", "👏", "Fiat Uno", 100)}>
                   Add to cart
                 </Button>
           </Col>
@@ -173,15 +190,26 @@ function App() {
         <Row>
           <h3 className="bg-white w-100 mt-5" id="shoppingCart">Shopping Cart</h3>
           
-          <Col>
-          
+          <Col className="rectangle-cart-list">
+            <h4>List</h4>
+            {ListCart.map(item => (
+              <div>
+                {item.carName} ${item.carValue}
+              </div>
+            ))}
+            <hr></hr>
+            <div>
+              Total: ${ListCart.reduce((acc,val) => (acc + val.carValue), 0)}
+            </div>
           </Col>
           
           <Col>
-            <Form className='m-4 d-flex flex-column align-items-center pb-5'>
+            <Form className='m-3 d-flex flex-column align-items-center pb-5'>
               <Form.Control type="name" placeholder="Name" value={name} onChange={e => updateName(e.target.value)} className="mt-4 register-input"/>
-              <Form.Control type="Address" placeholder="Adress" value={email} onChange={e => updateEmail(e.target.value)} className="mt-4 register-input"/>
-              <Button className="mt-4 confirm-button" onClick={e => storeInfo()} >
+              <Form.Control type="Address" placeholder="Adress" value={address} onChange={e => updateAdress(e.target.value)} className="mt-4 register-input"/>
+              <Form.Control type="ID" placeholder="Uber ID" value={ID} onChange={e => updateID(e.target.value)} className="mt-4 register-input"/>
+              <Form.Control type="Password" placeholder="Uber Password" value={password} onChange={e => updatePassword(e.target.value)} className="mt-4 register-input"/>
+              <Button className="mt-4 secondary-button" onClick={e => storeInfo()} >
                 Buy
               </Button>          
             </Form>
@@ -190,10 +218,6 @@ function App() {
         </Row>
         
       </Container>
-
-      <div>
-        
-      </div>
       
       <div className="rectangle-end">
         <Container className="text-white">
@@ -248,7 +272,7 @@ function App() {
         </Container>
       </div>
 
-      
+      <Toaster />  
     </div>    
   );
 }
